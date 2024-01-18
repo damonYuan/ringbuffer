@@ -18,7 +18,7 @@ public class CircularBuffer<E> implements IRingBuffer<E> {
 
     @Override
     public boolean offer(final E element) {
-        synchronized (this) {
+        synchronized (this) { // guarantee for multi-producer case
             if (isNotFull()) {
                 /**
                  * A write to the volatile field writeSequence guarantees that the writes to the buffer happen before updating the sequence.
@@ -35,7 +35,7 @@ public class CircularBuffer<E> implements IRingBuffer<E> {
 
     @Override
     public E poll() {
-        synchronized (this) {
+        synchronized (this) { // guarantee for multi-consumer case
             if (isNotEmpty()) {
                 E nextValue = data[readSequence % capacity];
                 readSequence++;
