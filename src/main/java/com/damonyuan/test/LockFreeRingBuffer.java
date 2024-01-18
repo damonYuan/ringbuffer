@@ -2,7 +2,7 @@ package com.damonyuan.test;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class RingBuffer<E> implements IRingBuffer<E> {
+public class LockFreeRingBuffer<E> implements IRingBuffer<E> {
     private static final int DEFAULT_CAPACITY = 8;
     private final int capacity;
     private final int mask;
@@ -10,7 +10,7 @@ public class RingBuffer<E> implements IRingBuffer<E> {
     private AtomicInteger head; // next read
     private AtomicInteger tail; // next write
 
-    public RingBuffer(final int capacity) {
+    public LockFreeRingBuffer(final int capacity) {
         this.capacity = (capacity < 1) ? DEFAULT_CAPACITY : findPowerOfTwo(capacity);
         this.mask = capacity - 1;
         this.data = (E[]) new Object[capacity];
