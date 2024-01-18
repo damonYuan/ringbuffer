@@ -25,6 +25,16 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.openjdk.jcstress</groupId>
+      <artifactId>jcstress-core</artifactId>
+      <version>0.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjdk.jcstress</groupId>
+      <artifactId>jcstress-samples</artifactId>
+      <version>0.5</version>
+    </dependency>
   </dependencies>
 
   <build>
